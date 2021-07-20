@@ -19,7 +19,7 @@ win_width = 1024
 
 background = transform.scale(image.load("bgf2.png"), (1024,788))
 window = display.set_mode((win_width, win_height))
-display.set_caption("pinpongh")
+display.set_caption("pinpongh1")
 
 class Player(GameSprite):
     def move_player1(self):
