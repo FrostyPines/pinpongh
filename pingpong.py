@@ -115,9 +115,12 @@ while game:
     if finish == False:
         window.blit(background,(0, 0))
         window.blit(text1,(450, 20))
+
+        mingiutza.reset()
+
         Player1.reset()
         Player2.reset()
-        mingiutza.reset()
+        
         Wall1.reset()
         Wall2.reset()
         Wall3.reset()
@@ -138,14 +141,23 @@ while game:
         Wall18.reset()
         Wall19.reset()
         Wall20.reset()
-        mingiutza.move()
+
         Player1.move_player1()
         Player2.move_player2()
 
-        if sprite.collide_rect(Player1, mingiutza) or sprite.collide_rect(Player2, mingiutza):
+        mingiutza.move()
+
+        if sprite.collide_rect(Player2, mingiutza):
             mingiutza.x_speed = -mingiutza.x_speed
             score = score + 1
             text1 = sus_font.render("Score: " + str(score), True, (225, 225, 255))
+            mingiutza.rect.x -= 8
+
+        if sprite.collide_rect(Player1, mingiutza):
+            mingiutza.x_speed = -mingiutza.x_speed
+            score = score + 1
+            text1 = sus_font.render("Score: " + str(score), True, (225, 225, 255))
+            mingiutza.rect.x += 8
 
         if sprite.collide_rect(mingiutza, Wall1):
             finish = True
@@ -226,5 +238,6 @@ while game:
         if sprite.collide_rect(mingiutza, Wall20):
             finish = True
             window.blit(lose1, (300, 300))
+
     display.update()
     time.delay(10)
