@@ -108,9 +108,12 @@ Wall18 = Walls("spikes.png", 988, 581, 0)
 Wall19 = Walls("spikes.png", 988, 664, 0)
 Wall20 = Walls("spikes.png", 988, 747, 0)
 
+high_score = 0
+
 with open("scoruletz.txt", "r", encoding = "utf-8") as file:
-    data = file.readline()
-    print(data)
+    high_score = file.readline()
+
+text2 = sus_font.render("High Score: " + high_score, True, (225, 225, 255))
 
 while game:
     for e in event.get():
@@ -119,7 +122,8 @@ while game:
 
     if finish == False:
         window.blit(background,(0, 0))
-        window.blit(text1,(450, 20))
+        window.blit(text1,(450, 50))
+        window.blit(text2,(400, 10))
 
         mingiutza.reset()
 
@@ -243,6 +247,12 @@ while game:
         if sprite.collide_rect(mingiutza, Wall20):
             finish = True
             window.blit(lose1, (300, 300))
+
+        if score > int(high_score):
+            high_score = score
+            text2 = sus_font.render("High Score: " + str(high_score), True, (225, 225, 255))
+            with open("scoruletz.txt", "w", encoding = "utf-8") as file:
+                file.write(str(high_score))
 
     display.update()
     time.delay(10)
