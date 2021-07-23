@@ -66,14 +66,14 @@ Player2 = Player("plat2.png", 934, win_height - 450, 5)
 mingiutza = Bilutza("tenis_ball.png", win_width/2, win_height/2, 5, 5)
 
 font.init()
-font_ = font.Font(None, 70)
+font_ = font.SysFont('Arial', 70)
 lose = font_.render('Partea Dreapta a Castigat!', True, (255, 0, 255  ))
 lose1 = font_.render('Partea Stanga a Castigat!', True, (255, 0, 255  ))
 
 score = 0
 
 font.init()
-sus_font = font.Font(None, 40)
+sus_font = font.SysFont('Arial', 40)
 text1 = sus_font.render("Score: " + str(score), True, (225, 225, 255))
 
 finish = False
