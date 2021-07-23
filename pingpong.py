@@ -107,6 +107,11 @@ Wall17 = Walls("spikes.png", 988, 498, 0)
 Wall18 = Walls("spikes.png", 988, 581, 0)
 Wall19 = Walls("spikes.png", 988, 664, 0)
 Wall20 = Walls("spikes.png", 988, 747, 0)
+
+with open("scoruletz.txt", "r", encoding = "utf-8") as file:
+    data = file.readline()
+    print(data)
+
 while game:
     for e in event.get():
         if e.type == QUIT:
